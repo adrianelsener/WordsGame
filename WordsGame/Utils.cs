@@ -2,11 +2,38 @@ namespace WordsGame;
 
 public class Utils
 {
-    public static string Scramble(string original)
+    private static Random random = new Random();
+
+    public static string Scramble(string input)
     {
-        // TODO: implement scrambling
-        return original;
+        if (string.IsNullOrEmpty(input))
+        {
+            return input;
+        }
+
+        if (input.Length == 1)
+        {
+            return input;   
+        }
+
+        char[] characters = input.ToCharArray();
+        string result;
+
+        do
+        {
+            for (int i = characters.Length - 1; i > 0; i--)
+            {
+               int j = random.Next(i + 1);
+             (characters[i], characters[j]) = (characters[j], characters[i]);
+            }
+
+            result = new string(characters);
+
+        } while (result == input);
+
+        return result;
     }
+
 
     public static List<string> SlurpLines(string filePath)
     {
