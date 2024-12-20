@@ -24,8 +24,7 @@ public class Program
             var points = game.Grade(solution.ToUpper());
             if (points == 0)
             {
-                // TODO: transcribe answer from https://youtu.be/yptXkLglKkA
-                Console.WriteLine("wrong");
+                Console.WriteLine("I award you no points, and may God have mercy on your soul.");
             }
             else
             {
